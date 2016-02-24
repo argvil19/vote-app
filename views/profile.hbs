@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Voting App</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/css.css">
+</head>
+<body>
+	<div class="container-fluid menu">
+		<h3 class="pull-left">Voting App</h3>
+		<ul class="pull-right">
+			<a href="/"><li>Home</li></a>
+			<a href="/logout"><li id="register">Logout</li></a>
+		</ul>
+	</div>
+	<div class="container data">
+		<h1>FCC Voting App</h1>
+		<div class="col-sm-6 col-sm-offset-3">
+			<h3>My profile:</h3>
+			<table>
+			    <tr>
+			        <td>Email</td>
+			        <td>{{user.email}}</td>
+			    </tr>
+			    <tr>
+			        <td>Number of polls created</td>
+			        <td>{{polls.length}}</td>
+			    </tr>
+			    <tr>
+			        <td>Total votes in your polls</td>
+			        <td>{{total}}</td>
+			    </tr>
+			</table>
+		</div>
+	</div>
+	<div class="footer container">
+		<p class="footer-text pull-right">Made by <a href="http://www.freecodecamp.com/argvil19">argvil19</a> for FCC Back End course</p>
+	</div>
+
+</body>
+</html>

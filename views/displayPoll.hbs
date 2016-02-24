@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Voting App</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/polls.css">
+</head>
+<body>
+	<div class="container-fluid menu">
+		<h3 class="pull-left">Voting App</h3>
+		<ul class="pull-right">
+			<a href="/"><li>Home</li></a>
+			{{#if user}}
+			<a href="/logout"><li id="register">Logout</li></a>
+			{{else}}
+			<a href="/login"><li>Login</li></a>
+			<a href="/signup"><li id="register">Register</li></a>
+			{{/if}}
+		</ul>
+	</div>
+	<div class="container data">
+		<h1>FCC Voting App</h1>
+		<h2>Poll: <strong>{{poll.name}}</strong></h2>
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-1">
+				{{#if message}}
+				<p class='text-warning'><strong>{{message}}</strong></p>
+				{{/if}}
+				<h3>Options:</h3>
+				<form action="/vote" method="POST" class="form-inline">
+				{{#each poll.options}}
+					<label><input type="radio" name="voteOption" class="opts form-control" value="{{this.optName}}"/>{{this.optName}}</label>
+					<input type="hidden" class="votes" value="{{this.votes}}" />
+				{{/each}}
+					<input type="hidden" value="{{poll._id}}" name="_id"/>
+					<input type="submit" class="btn btn-primary" />
+				</form>
+				{{#if user}}
+				<hr/>
+				<h3>Add a new option</h3>
+				<form action="/poll/update" method="POST">
+					<p>Option name:</p>
+					<input class="form-control" type="text" name="optName" />
+					<input type="hidden" value="{{poll._id}}" name="_id"/>
+					<input type="submit" class="btn btn-warning pull-right" />
+				</form>
+				{{/if}}
+			</div>
+			<div class="col-sm-6 col-sm-offset-1">
+				<canvas id="myChart" width="300" height="300"></canvas>
+			</div>
+		</div>
+	</div>
+	<div class="footer container">
+		<p class="footer-text pull-right">Made by <a href="http://www.freecodecamp.com/argvil19">argvil19</a> for FCC Back End course</p>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="../javascripts/Chart.js"></script>
+	<script src="../javascripts/chartPolls.js"></script>
+
+
+</body>
+</html>

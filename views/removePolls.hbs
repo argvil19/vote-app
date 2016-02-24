@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>Voting App</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../stylesheets/css.css">
+</head>
+<body>
+	<div class="container-fluid menu">
+		<h3 class="pull-left">Voting App</h3>
+		<ul class="pull-right">
+			<a href="/"><li>Home</li></a>
+			<a href="/logout"><li id="register">Logout</li></a>
+		</ul>
+	</div>
+	<div class="container data">
+		<h1>FCC Voting App</h1>
+		<div class="col-sm-6 col-sm-offset-3">
+		    {{#if message}}
+		    <p class="status-msg">{{message}}</p>
+		    {{/if}}
+			<form action="/poll/delete" method="POST" class="form-inline">
+				<fieldset>
+					<legend>Delete a poll</legend>
+					<p class="status-msg text-danger"></p>
+					    {{#if polls}}
+					    <select size="5" name="polls">
+					        {{#each polls}}
+					        <option>{{this.name}}</option>
+					        {{/each}}
+					    </select>
+					    <input id="btnSubmit" type="submit" class="btn btn-danger" value="Delete poll" />
+					    {{else}}
+					    <p class="text-danger">ERROR: You haven't created any poll</p>
+					    {{/if}}
+					    
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="footer container">
+		<p class="footer-text pull-right">Made by <a href="http://www.freecodecamp.com/argvil19">argvil19</a> for FCC Back End course</p>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="../../javascripts/deletePoll.js"></script>
+
+</body>
+</html>

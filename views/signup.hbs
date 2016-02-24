@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Voting App</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+</head>
+<body>
+	<div class="container-fluid menu">
+		<h3 class="pull-left">Voting App</h3>
+		<ul class="pull-right">
+			<a href="/"><li>Home</li></a>
+			<a href="/login"><li>Login</li></a>
+			<a href="/signup"><li id="register">Register</li></a>
+		</ul>
+	</div>
+	<div class="container data">
+		<h1 class="title">FCC Voting App</h1>
+		<form action="/signup" method="POST" name="login">
+			<div class="col-sm-6 col-sm-offset-3">
+			<fieldset>
+				<legend>Sign up</legend>
+					<p>With an account you can:</p>
+					<ul>
+						<li>Create new polls.</li>
+						<li>Delete your polls.</li>
+						<li>See the aggregate results of your polls.</li>
+					</ul>
+					<div class="text-danger message-status">
+					{{#if message.length}}
+					<p class="text-danger">{{message}}</p>
+					{{/if}}
+					</div>
+					<br/>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input id="email" type="text" class="form-control" placeholder="Email" name="email"/>
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-option-horizontal"></i></span>
+						<input id="pass" type="password" class="form-control" placeholder="Password" name="password"/>
+					</div>
+					<input type="submit" class="btn btn-warning pull-right" />
+			</fieldset>
+			</div>
+		</form>
+	</div>
+	<div class="footer container">
+		<p class="footer-text pull-right">Made by <a href="http://www.freecodecamp.com/argvil19">argvil19</a> for FCC Back End course</p>
+	</div>
+	
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="javascripts/validate.js"></script>
+</body>
+</html>

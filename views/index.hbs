@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>Voting App</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/css.css">
+</head>
+<body>
+	<div class="container-fluid menu">
+		<h3 class="pull-left">Voting App</h3>
+		<ul class="pull-right">
+			<a href="/"><li>Home</li></a>
+			{{#if user.email}}
+			<a href="/logout"><li id="register">Logout</li></a>
+			{{else}}
+			<a href="/login"><li>Login</li></a>
+			<a href="/signup"><li id="register">Register</li></a>
+			{{/if}}
+		</ul>
+	</div>
+	<div class="container data">
+		<h1 class="title">FCC Voting App</h1>
+		{{#if message}}
+		<h3 class="text-center text-success">{{message}}</h3>
+		{{/if}}
+			<div class="col-sm-8 col-sm-offset-2">
+				{{#if user.email}}
+				<a href="/poll/new" class="btn btn-success text-center user-opt">Create a new poll</a>
+				<a href="/poll/delete" class="btn btn-danger text-center user-opt">Delete a poll</a>
+				<a href="/profile" class="btn btn-primary text-center user-opt">My profile</a>
+				{{/if}}
+				<h3 class="text-center">These are the currently active polls:</h3>
+				{{#if polls}}
+					{{#each polls}}
+						<a class="btn btn-primary poll-item" href="/poll/{{this._id}}">{{this.name}}</a>
+					{{/each}}
+				{{else}}
+					<p class="text-center no-polls">There is no active polls.</p>
+				{{/if}}
+			</div>
+	</div>
+	
+	<div class="footer container">
+		<p class="footer-text pull-right">Made by <a href="http://www.freecodecamp.com/argvil19">argvil19</a> for FCC Back End course</p>
+	</div>
+</body>
+</html>

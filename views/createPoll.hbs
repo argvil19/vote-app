@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Voting App</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/css.css">
+</head>
+<body>
+	<div class="container-fluid menu">
+		<h3 class="pull-left">Voting App</h3>
+		<ul class="pull-right">
+			<a href="/"><li>Home</li></a>
+			<a href="/logout"><li id="register">Logout</li></a>
+		</ul>
+	</div>
+	<div class="container data">
+		<h1>FCC Voting App</h1>
+		<div class="col-sm-6 col-sm-offset-3">
+			<form action="/pool/new" method="POST" class="form-inline">
+				<fieldset>
+					<legend>Create a new poll</legend>{{#if message}}
+					<p id="poll-nm-mes" class="text-danger">
+					{{message}}
+					</p>
+					{{/if}}
+					<p id="poll-nm-mes" class="text-danger">
+					</p>
+					<h4>Poll name</h4>
+					<input id="pollName" type="text" class="form-control" name="pollName" />
+					<hr/>
+					<h4>Add vote options</h4>
+					<p id="poll-opt-mes" class="text-danger"></p>
+					<input id="optName" type="text" class="form-control " name="voteOption"/>
+					<button id="addOpt" class="btn btn-warning">Add option</button>
+					<button id="rmvOpt" class="btn btn-danger">Delete option</button>
+					<select id="voteOpts" name="options" size="10">
+					</select>
+					<input id="hiddenOpts" type="hidden" name="hideOptions"/>
+					<input id="btnSubmit" type="submit" class="pull-right btn btn-primary" />
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div class="footer container">
+		<p class="footer-text pull-right">Made by <a href="http://www.freecodecamp.com/argvil19">argvil19</a> for FCC Back End course</p>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="../javascripts/pollForm.js"></script>
+
+</body>
+</html>
