@@ -61,8 +61,6 @@ $(document).ready(function() {
         });
     }
     
-    console.log(data);
-    
     var ctx = document.getElementById('myChart').getContext('2d');
     var myNewChart = new Chart(ctx).PolarArea(data, {
         scaleShowLine : true,
@@ -85,5 +83,7 @@ $(document).ready(function() {
         legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
     });
     
-    myNewChart.update();
-})
+    var pollName = unescape(encodeURIComponent("Vote in my poll! " + $('strong')[0].innerHTML + " " + window.location));
+    console.log(pollName);
+    $('#btnTwitter').attr('href', "https://twitter.com/intent/tweet?text=" + pollName);
+})  
