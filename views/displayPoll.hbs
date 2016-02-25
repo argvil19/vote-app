@@ -23,9 +23,7 @@
 		<h2>Poll: <strong>{{poll.name}}</strong></h2>
 		<div class="row">
 			<div class="col-sm-4 col-sm-offset-1">
-				{{#if message}}
-				<p class='text-warning'><strong>{{message}}</strong></p>
-				{{/if}}
+				<p class='text-warning'><strong>{{#if message}}{{message}}{{/if}}</strong></p>
 				<h3>Options:</h3>
 				<form action="/vote" method="POST" class="form-inline">
 				{{#each poll.options}}
@@ -33,7 +31,7 @@
 					<input type="hidden" class="votes" value="{{this.votes}}" />
 				{{/each}}
 					<input type="hidden" value="{{poll._id}}" name="_id"/>
-					<input type="submit" class="btn btn-primary btn-block" />
+					<input id="btnSubmitVote" type="submit" class="btn btn-primary btn-block" />
 				</form>
 				<a id="btnTwitter" href="#" target="_blank" class="btn btn-info btn-block"><i class="fa fa-twitter"> </i> Share on Twitter</a>
 				{{#if user}}
@@ -43,7 +41,7 @@
 					<p>Option name:</p>
 					<input class="form-control" type="text" name="optName" />
 					<input type="hidden" value="{{poll._id}}" name="_id"/>
-					<input type="submit" class="btn btn-warning pull-right" />
+					<input id="btnSubmit" type="submit" class="btn btn-warning pull-right" />
 				</form>
 				{{/if}}
 			</div>
