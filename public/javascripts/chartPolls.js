@@ -5,6 +5,32 @@ function dynamicColors() {
     return "rgba(" + r + "," + g + "," + b + "";
 };
 
+function checkNewOpt() {
+    var text = document.forms[1].optName.value;
+    if (text) {
+        return true;
+    }
+    
+    $('.text-warning').html('You must specify a name for your new option');
+    
+    return false;
+}
+
+function checkSelected() {
+    var items = $.makeArray($('.opts'));
+    console.log(typeof items);
+    
+    for (var i=0;i<items.length;i++) {
+        if (items[i].checked) {
+            return true;
+        }
+    }
+    
+    $('.text-warning').html('You must check at least one option');
+    
+    return false;
+}
+
 $(document).ready(function() {
     Chart.defaults.global = {
     animation: true,
@@ -86,4 +112,7 @@ $(document).ready(function() {
     var pollName = unescape(encodeURIComponent("Vote in my poll! " + $('strong')[0].innerHTML + " " + window.location));
     console.log(pollName);
     $('#btnTwitter').attr('href', "https://twitter.com/intent/tweet?text=" + pollName);
-})  
+    
+    $('#btnSubmitVote').on('click', checkSelected);
+    $('#btnSubmit').on('click', checkNewOpt);
+});
