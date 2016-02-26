@@ -217,7 +217,7 @@ module.exports = function(app, passport) {
                         req.flash('message', "You can't vote more than once in a single poll");
                         return res.redirect('/poll/'+id);
                     } else {
-                        if (i === data.ipVoted.length) {
+                        if (i+1 === data.ipVoted.length) {
                             return updateVote(data, voteValue, ipVoted, id, req, res);
                         }
                     }
